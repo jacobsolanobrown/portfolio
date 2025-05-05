@@ -603,6 +603,7 @@ svg {
   gap: 30px;
   width: 100%;
   position: relative;
+  z-index: 1;
 }
 
 .about-me-card {
@@ -743,7 +744,6 @@ svg {
 }
 
 .about-pink-blur {
-  max-width: 100%;
 
   width: 515px;
   height: 281px;
@@ -756,8 +756,9 @@ svg {
   position: absolute;
   left: 20%;
   top: 30%;
-
-  z-index: 1;
+  transform: translateZ(0);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .about-blue-blur {
