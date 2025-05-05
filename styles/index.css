@@ -13,7 +13,7 @@
   font-display: swap;
 }
 
-/* @font-face {
+@font-face {
   font-family: "Clash Grotesk";
   src: url("../fonts/ClashGrotesk-Medium.woff2") format("woff2"),
     url("../fonts/ClashGrotesk-Medium.woff") format("woff");
@@ -29,7 +29,7 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
-} */
+}
 
 /* ==========================================================================
    FONT DEFINITIONS
@@ -586,17 +586,13 @@ svg {
 .about-me-section {
   display: flex;
   flex-direction: column;
-  padding: 0 10%;
+  padding: 256px 10% 64px;
   align-items: center;
   position: relative;
 
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-  z-index: 300;
-
-  width: 100%;
-  margin-top: 256px;
-  margin-bottom: 64px;
+  max-width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
   gap: 36px;
 }
 
@@ -747,22 +743,26 @@ svg {
 }
 
 .about-pink-blur {
+  max-width: 100%;
+
   width: 515px;
   height: 281px;
   flex-shrink: 0;
 
   border-radius: 515px;
-  background: #da72c5;
+  background: #efa5e0;
   filter: blur(125px);
 
   position: absolute;
-  left: 10%;
-  top: 10%;
+  left: 20%;
+  top: 30%;
 
   z-index: 1;
 }
 
 .about-blue-blur {
+  max-width: 100%;
+
   width: 515px;
   height: 281px;
   flex-shrink: 0;
@@ -779,6 +779,8 @@ svg {
 }
 
 .about-blue-blur2 {
+  max-width: 100%;
+
   width: 315px;
   height: 281px;
   flex-shrink: 0;
@@ -1116,11 +1118,15 @@ textarea {
   /* Grid layout for about-me section */
   .about-me-section {
     /* margin-top: 180px; */
-    padding: 0 5%;
-    overflow-x: hidden;
-    overflow-y: visible;
+    padding: 96px 5%;
   }
 
+  .about-pink-blur,
+  .about-blue-blur,
+  .about-blue-blur2 {
+    display: none;
+  }
+  
   .about-me-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1230,8 +1236,7 @@ textarea {
   }
 
   .about-me-section {
-    padding: 64px 32px 64px 32px;
-    margin-top: 100px;
+    padding: 64px 32px;
   }
 
   .about-me-section h1,
@@ -1306,7 +1311,6 @@ textarea {
   }
 
   .about-me-section {
-    margin-top: 64px;
     gap: 24px;
   }
 
