@@ -1,5 +1,41 @@
 @import "shared/variables.css";
 
+
+/* ==========================================================================
+   FONT DEFINITIONS
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('fonts/ClashGrotesk-Regular.woff2') format('woff2'),
+       url('fonts/ClashGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('fonts/ClashGrotesk-Medium.woff2') format('woff2'),
+       url('fonts/ClashGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clash Grotesk';
+  src: url('fonts/ClashGrotesk-Bold.woff2') format('woff2'),
+       url('fonts/ClashGrotesk-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   FONT DEFINITIONS
+   ========================================================================== */
+
 :root {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color-scheme: light; /* light or dark */
@@ -352,6 +388,7 @@ svg {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  align-items: top;
   position: relative;
   gap: 10px;
   transition: transform 0.2s ease-in-out;
@@ -359,8 +396,8 @@ svg {
     brightness(82%) contrast(95%);
 }
 .landing-contact-photo-links img {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
 }
 .landing-contact-photo-links img:hover {
   transform: scale(1.2);
@@ -534,6 +571,37 @@ svg {
     ABOUT ME SECTION
    ========================================================================== */
 
+/* Add to the root element */
+body {
+  overflow-x: hidden;
+}
+
+/* Fix for about-me-section */
+.about-me-section {
+  overflow: visible !important; /* Override any other overflow settings */
+  z-index: 10; /* Ensure it's above background but below other elements */
+}
+
+/* Fix for blur elements */
+.about-pink-blur,
+.about-blue-blur,
+.about-blue-blur2,
+.contact-pink-blur,
+.contact-blue-blur {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none; /* Prevents interaction issues */
+  z-index: 1; /* Keep them behind content */
+}
+
+/* Fix for container elements */
+.about-me-grid,
+.project-list,
+.contact-frame {
+  overflow: visible !important;
+  position: relative;
+}
+
 .about-me-section {
   display: flex;
   flex-direction: column;
@@ -673,14 +741,6 @@ svg {
   transform: scale(1.2);
 }
 
-.about-me-line {
-  width: 100%;
-  height: 1px;
-  background: var(--navy, #2e298a);
-  border: none;
-  opacity: 1;
-}
-
 .about-me-card img {
   border-radius: 25px;
   width: 250px;
@@ -690,7 +750,7 @@ svg {
 
 .about-me-section h1 {
   font-family: "Clash Grotesk";
-  src: url("../fonts/ClashGrotesk-Regular.woff2") format("woff2");
+  src: url("fonts/ClashGrotesk-Regular.woff2") format("woff2");
   font-size: var(--font-size-title);
   font-style: normal;
   font-weight: 400;
@@ -702,6 +762,7 @@ svg {
   text-underline-offset: auto;
   text-underline-position: from-font;
   color: var(--navy, #2e298a);
+  z-index: 240;
 }
 
 .about-pink-blur {
@@ -763,8 +824,9 @@ svg {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
   overflow-x: hidden;
+  overflow-y: visible;
+  z-index: 100;
 }
 
 /* the inner div of the project section */
@@ -777,7 +839,8 @@ svg {
   width: 100%;
   z-index: 100;
   overflow-x: hidden;
-  padding: 0 10%;
+  overflow-y: visible;
+  padding: 10%;
 
   /* gradient changes */
   position: relative;
@@ -785,7 +848,7 @@ svg {
 
 .project-list h1 {
   font-family: "Clash Grotesk";
-  src: url("../fonts/ClashGrotesk-Regular.woff2") format("woff2");
+  src: url("fonts/ClashGrotesk-Regular.woff2") format("woff2");
   font-size: var(--font-size-title);
   font-style: normal;
   font-weight: 400;
@@ -831,7 +894,7 @@ svg {
 
 .contact-frame h1 {
   font-family: "Clash Grotesk";
-  src: url("../fonts/ClashGrotesk-Regular.woff2") format("woff2");
+  src: url("fonts/ClashGrotesk-Regular.woff2") format("woff2");
   font-size: var(--font-size-title);
   font-style: normal;
   font-weight: 400;
@@ -1046,7 +1109,7 @@ textarea {
     margin-right: 10%;
     margin-top: 10%;
     padding: 15px;
-    gap: var(--spacing-sm);
+    gap: 12px;
   }
 
   .landing-text {
@@ -1065,6 +1128,11 @@ textarea {
     width: 250px;
   }
 
+  .landing-contact-photo-links img {
+    width: 70px;
+    height: 70px;
+  }
+
   .nav-box {
     gap: 48px;
     padding: 15px 48px;
@@ -1074,8 +1142,10 @@ textarea {
 
   /* Grid layout for about-me section */
   .about-me-section {
-    margin-top: 180px;
+    /* margin-top: 180px; */
     padding: 0 5%;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .about-me-grid {
@@ -1113,6 +1183,7 @@ textarea {
 
   .project-list {
     padding: 0 5%;
+    overflow-y: visible;
   }
 
   .projects-grid {
@@ -1122,6 +1193,7 @@ textarea {
 
   .contact-section {
     padding: 128px 10% 64px 10%;
+    overflow-y: visible;
   }
 
   .name-card-star {
@@ -1167,8 +1239,8 @@ textarea {
   }
 
   .landing-contact-photo-links img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
 
   /* Switch from desktop to mobile navigation */
@@ -1183,12 +1255,18 @@ textarea {
   .about-me-section {
     padding: 64px 0 64px 0;
     margin-top: 100px;
+    overflow-x: hidden;
+    overflow-y: visible;
   }
 
   .about-me-section h1,
   .project-list h1,
   .contact-frame h1 {
     font-size: 30px;
+  }
+
+  .about-me-card p {
+    font-size: 18px;
   }
 
   .experience-card h3 {
@@ -1220,6 +1298,11 @@ textarea {
   .contact-me-form form {
     font-size: 18px;
   }
+
+  footer p,
+  footer button {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1247,6 +1330,11 @@ textarea {
     width: 180px;
   }
 
+  .landing-contact-photo-links img {
+    width: 60px;
+    height: 60px;
+  }
+
   .about-me-section {
     margin-top: 64px;
     gap: 24px;
@@ -1260,6 +1348,10 @@ textarea {
 
   .about-me-card {
     padding: var(--spacing-md);
+  }
+
+  .about-me-card p {
+    font-size: 16px;
   }
 
   .experience-card {
@@ -1323,11 +1415,8 @@ textarea {
     text-align: center;
   }
 
-  footer p,
-  footer a,
-  footer button {
+  footer a {
     font-size: 16px;
-    justify-content: center;
   }
 
   .name-card-star {
@@ -1355,8 +1444,8 @@ textarea {
   }
 
   .landing-contact-photo-links img {
-    width: 22px;
-    height: 22px;
+    width: 50px;
+    height: 50px;
   }
 
   .about-me-section h1,
@@ -1376,6 +1465,52 @@ textarea {
   .tech-stack-logos img {
     width: 40px;
     height: 40px;
+  }
+}
+
+/* ==========================================================================
+   Mobile Touch Device Optimizations - Disable hover effects
+   ========================================================================== */
+@media (hover: none), (max-width: 900px) {
+  /* Landing section */
+  .landing-container img:hover {
+    animation: none;
+    transform: none;
+  }
+
+  .landing-contact-photo-links img:hover {
+    transform: none;
+    filter: invert(14%) sepia(67%) saturate(3410%) hue-rotate(239deg)
+      brightness(82%) contrast(95%);
+    animation: none;
+  }
+
+  /* Tech stack */
+  .tech-stack-logos img:hover {
+    transform: none;
+  }
+
+  /* Contact section */
+  .contact-photo-links img:hover {
+    transform: none;
+    filter: invert(14%) sepia(67%) saturate(3410%) hue-rotate(239deg)
+      brightness(82%) contrast(95%);
+  }
+
+  /* Form button */
+  .contact-me-form button:hover {
+    background-color: var(--cream, #fcfaf8);
+    color: var(--navy, #2e298a);
+    transform: none;
+  }
+
+  /* Navigation hover states */
+  .nav-box a:hover {
+    text-decoration: none;
+  }
+
+  .accordion-menu a:hover {
+    background-color: transparent;
   }
 }
 
@@ -1446,4 +1581,56 @@ footer button {
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+}
+
+/* ==========================================================================
+   Respect User Animation Preferences
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce), (max-width: 900px) {
+  /* Stop all animations and transitions */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Landing elements */
+  .landing-container img:hover,
+  .name-card-star,
+  .landing-contact-photo-links img:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Gradient elements - completely disable them for performance */
+  .gradient-container div {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Disable hover effects for links and buttons */
+  a:hover, button:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Disable specific animations */
+  .name-card-star {
+    animation: none !important;
+  }
+  
+  /* Form elements */
+  .contact-me-form button:hover {
+    transform: none !important;
+    background-color: var(--cream, #fcfaf8) !important;
+    color: var(--navy, #2e298a) !important;
+  }
+  
+  /* Tech stack and social link hovers */
+  .tech-stack-logos img:hover,
+  .contact-photo-links img:hover {
+    transform: none !important;
+  }
 }

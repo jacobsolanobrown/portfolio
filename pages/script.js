@@ -108,3 +108,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// Check for reduced motion preference
+function checkReducedMotion() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || 
+      window.innerWidth <= 900) {
+    document.documentElement.classList.add('reduced-motion');
+  } else {
+    document.documentElement.classList.remove('reduced-motion');
+  }
+}
+
+// Run on page load
+checkReducedMotion();
+
+// Run on window resize
+window.addEventListener('resize', checkReducedMotion);
+
+// Listen for preference changes
+window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', checkReducedMotion);
