@@ -415,7 +415,7 @@ svg {
   display: block;
   position: sticky;
   top: 24px;
-  z-index: 200;
+  z-index: 2000;
   margin-top: -256px;
   margin-bottom: 128px;
   width: 100%;
