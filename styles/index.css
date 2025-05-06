@@ -744,7 +744,6 @@ svg {
 }
 
 .about-pink-blur {
-
   width: 515px;
   height: 281px;
   flex-shrink: 0;
@@ -907,7 +906,7 @@ svg {
 
   color: var(--navy, #2e298a);
   text-align: center;
-  font-family: "Clash Grotesk";
+  font-family: "Helvetica Neue";
   font-size: 20px;
   font-style: light;
   font-weight: 400;
@@ -1127,7 +1126,7 @@ textarea {
   .about-blue-blur2 {
     display: none;
   }
-  
+
   .about-me-grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
@@ -1279,6 +1278,10 @@ textarea {
   .contact-me-form form {
     font-size: 18px;
   }
+  
+  .footer-text {
+    display: none;
+  }
 }
 
 /* ==========================================================================
@@ -1401,6 +1404,14 @@ textarea {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  .footer-text, 
+  .resume-link {
+    display: none;
+  }
+
+  .footer-scroll-to-top {
+    font-size: 16px;
   }
 }
 

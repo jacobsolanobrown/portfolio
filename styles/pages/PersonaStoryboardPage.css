@@ -570,3 +570,42 @@ footer button {
   align-items: center;
   cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+  .nav-list {
+    display: none;
+  }
+
+  .landing-frame {
+    padding: 24px;
+  }
+
+  nav
+
+  .header-card {
+    padding: 24px;
+  }
+
+  .main-content {
+    padding: 12px;
+    flex-direction: column;
+  }
+
+  .nav-list {
+    position: static;
+    top: auto;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .content-list {
+    padding: 0px;
+    width: 100%;
+  }
+
+  .footer-text, 
+  .resume-link {
+    display: none;
+  }
+  
+}
