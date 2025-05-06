@@ -181,9 +181,10 @@
                 accordions:
                 <strong>
                   Ticketmaster's Account Details, The Sims 4 Simology Panel, and
-                  Brown University's QuestBridge FAQ Page. </strong
-                > The following input/output table details the various ways
-                users can interact with accordions across these applications.
+                  Brown University's QuestBridge FAQ Page.
+                </strong>
+                The following input/output table details the various ways users
+                can interact with accordions across these applications.
               </p>
               <div class="image-frame">
                 <table>
@@ -435,6 +436,7 @@
                 isn't so much whether it works, but whether it might work
                 better.
               </p>
+              <h4>State Models for Redesigning</h4>
               <p>
                 We can use various state models to better understand user
                 interactions, creating opportunities for refinement. By
@@ -449,32 +451,103 @@
                 Initial State Models for Ticketmaster's Accordion Component
               </h4>
               <div class="state-model-frame">
-                <img
-                  src="../images/accessible-components-assets/stmdl_key_init.png"
-                  alt="Keyboard Initial State Model"
-                />
-                <img
-                  src="../images/accessible-components-assets/stmdl_mouse_init.png"
-                  alt="Mouse Initial State Model"
-                />
+                <figure>
+                  <img
+                    src="../images/accessible-components-assets/stmdl_key_init.png"
+                    alt="Keyboard Initial State Model"
+                  />
+                  <figcaption>
+                    This emphasizes that other headers in the accordion stay
+                    open regardless of changing another headers section.
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="../images/accessible-components-assets/stmdl_mouse_init.png"
+                    alt="Mouse Initial State Model"
+                  />
+                  <figcaption>
+                    The same as a Keyboard, clicking on a header does not change
+                    any other header sections in the accordion.
+                  </figcaption>
+                </figure>
               </div>
               <h4>
                 Proposed State Models for Ticketmaster's Accordion Component
               </h4>
               <div class="state-model-frame">
-                <img
-                  src="../images/accessible-components-assets/stmdl_key_redesign.png"
-                  alt="Keyboard Redesign State Model"
-                />
-                <img
-                  src="../images/accessible-components-assets/stmdl_mouse_redesign.png"
-                  alt="Mouse Redesign State Model"
-                />
+                <figure>
+                  <img
+                    src="../images/accessible-components-assets/stmdl_key_redesign.png"
+                    alt="Keyboard Redesign State Model"
+                  />
+                  <figcaption>
+                    This redesign allows for the user to open a section while
+                    closing the other sections to emphasize the current section.
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="../images/accessible-components-assets/stmdl_mouse_redesign.png"
+                    alt="Mouse Redesign State Model"
+                  />
+                  <figcaption>
+                    The same as the keyboard redeisgn, it allows for the user to
+                    open a section while closing the other sections to emphasize
+                    the current section.
+                  </figcaption>
+                </figure>
               </div>
+
               <p>
                 Building from these insights, we can now discuss a redesign that
                 purposefully makes compromises to achieve a better user
                 experience without compromising core functionality.
+              </p>
+              <h4>Redesigning Ticketmaster's Accordion</h4>
+              <div class="image-frame">
+                <img
+                  src="../images/accessible-components-assets/Initial_State_(Redesign).jpg"
+                  alt=""
+                />
+              </div>
+              <h5>Ticketmaster's Accordion Redesign - Default State</h5>
+              <p>
+                First, I chose to add a new state to Ticketmaster's Accordion by
+                having all the sections be closed by default and only having the
+                accordion being visible.
+
+                <br />
+                <br />
+                <strong>Trade-off:</strong> starting with every panel closed
+                adds one extra click to see content, yet delivers a clean first
+                view. This uncluttered layout instantly signals “click to open”
+                <strong>(learnability)</strong>, is easy to recall on return
+                visits <strong>(memorability)</strong>, and cuts initial
+                scrolling and visual noise <strong>(efficiency)</strong>.
+              </p>
+              <div class="image-frame">
+                <img
+                  src="../images/accessible-components-assets/Open_State_Redesign.jpg"
+                  alt=""
+                />
+              </div>
+              <h5>Ticketmaster's Accordion Redesign - Open Section State</h5>
+              <p>
+                Then, I chose to emphasize the current selected and open section
+                by highlighing the current section header with blue, giving the
+                close chevron button a label, and having all other sections
+                closed in the accordion.
+                <br />
+                <br />
+
+                <strong>Trade-off:</strong> By hiding other panels, it removes
+                side‑by‑side comparison, but the blue highlight and “Close”
+                label give a single, focal point. Users grasp the pattern at a
+                glance <strong>(learnability)</strong>, recall the “blue = open”
+                rule next visit <strong>(memorability)</strong>, and scroll less
+                to reach content <strong>(efficiency)</strong> as only one
+                section is open at a time.
               </p>
             </div>
           </section>
@@ -484,11 +557,78 @@
             <h2>takeaways</h2>
             <div class="design-text-box final">
               <p>
-                This exercise highlighted the power of real-world observation,
-                interviews, and personas in uncovering usability gaps. Next
-                steps include prototyping larger text options, progress
-                indicators, and shortcut features to streamline the kiosk
-                experience for all.
+                As a full-stack SWE who aims to build with precision, this case
+                study clarifies how intentional accessibility improvements
+                transform a simple accordion into an intuitive, inclusive
+                experience.
+              </p>
+              <h4>Usability &amp; Accessibility Strengths</h4>
+              <p>
+                Across Ticketmaster, Sims 4 and Brown FAQ accordions we saw
+                clear capabilities (chevrons, plus/minus toggles), keyboard
+                operability (Tab → Enter) and screen-reader announcements. In
+                our redesign we preserved these cues and added:
+              </p>
+              <ul>
+                <li>Visible section highlighs</li>
+                <li>“Close” labels for clarity</li>
+                <li>Less selectable content by default</li>
+              </ul>
+
+              <h4>Additional Accessibility Considerations</h4>
+              <p>We addressed gaps in accessibility design by:</p>
+              <ul>
+                <li>
+                  Ensuring contrast ratios are met for all text and icons
+                  (included the new blue highlight)
+                </li>
+                <li>
+                  Adding a “Close” label to the chevron icon for screen readers
+                  and simpler interprebility
+                </li>
+              </ul>
+
+              <h4>Solving a “Mismatch”</h4>
+              <p>
+                <a href="https://www.youtube.com/watch?v=-iccWRhKZa8">Kat Holmes</a>
+                defines a mismatch in design as users who do not match into the assumption of the user profile a designer created for them. In my design, I tried to include other user profiles by adding more options. By closing all panels by default and emphasizing one section at a time, we removed visual clutter and supported
+                users with cognitive or visual impairments who need a clear
+                focal point and have the option to focus on one section at a
+                time.
+              </p>
+
+              <h4>Impact on Users with Impairments</h4>
+              <p>
+                Given users with impairments, there are still more positive and
+                negative ways our inputs and outputs can effect them, such as
+                when an opening animation occurs, it can affect them by:
+              </p>
+              <ul>
+                <li>
+                  <strong>Positive:</strong> Screen-reader users hear “expanded”
+                  announcements, improving orientation.
+                </li>
+                <li>
+                  <strong>Negative:</strong> Rapid animations can disorient
+                  users with vestibular sensitivities if not reduced or
+                  disabled.
+                </li>
+              </ul>
+              <h4>User Prioritization</h4>
+              <p>
+                Mouse and keyboard interactions tend to be prioritized in
+                component design. This can isolate touch-only and
+                assistive-technology users by overlooking tap targets and ARIA
+                focus management, leading to inconsistent experiences for these users.
+              </p>
+              <h4>Conclusion</h4>
+              <p>
+                This case study demonstrates how a focused, iterative
+                redesign, focused on accessibility research,
+                and user testing, can evolve an already well designed accordion into an even more
+                universally intuitive, dependable interface. By balancing
+                technical precision with purposeful trade-offs and a dash of
+                curiosity, it reflects a great approach for any designer and engineer to create with purpose and others in mind.
               </p>
             </div>
           </section>

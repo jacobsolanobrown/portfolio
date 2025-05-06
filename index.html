@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="entire-homepage">
-      <svg>
+      <svg aria-hidden="true">
         <filter id="grainy">
           <!-- {/* <feTurbulence type="turbulence" baseFrequency="0.6" /> */} -->
           <feTurbulence
@@ -34,7 +34,7 @@
           />
         </filter>
       </svg>
-      <svg
+      <svg aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         style="position: absolute; width: 0; height: 0"
       >
@@ -67,8 +67,8 @@
       <main>
         <section id="landing-page" class="landing-section-outer">
           <div class="landing-section-inner">
-            <div class="gradient-bg">
-              <svg xmlns="http://www.w3.org/2000/svg">
+            <div class="gradient-bg" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
                   <filter id="goo">
                     <feGaussianBlur
@@ -363,7 +363,7 @@
                   <div class="project-card-image">
                     <img
                       src="images/buyatbrown-assets/buyatbrown-mockup.png"
-                      alt="{title}"
+                      alt="Mockup of Buy At Brown Login Page"
                     />
                   </div>
                   <div class="project-card-content">
@@ -454,7 +454,7 @@
                   <div class="project-card-image">
                     <img
                       src="images/accessible-components-assets/accessible-mockup.png"
-                      alt="{title}"
+                      alt="Mockup of Accessible Components Case Study"
                     />
                   </div>
                   <div class="project-card-content">
@@ -492,14 +492,14 @@
                 <a href="https://www.linkedin.com/in/jacob-solano-92587226b/">
                   <img
                     src="images/homepage/linkedinlogo.svg"
-                    alt="LinkedIn's Logo"
+                    alt="LinkedIn's Logo in Blue"
                     class="white-social-logo"
                   />
                 </a>
                 <a href="https://github.com/jacobsolanobrown">
                   <img
                     src="images/homepage/githublogo.svg"
-                    alt="Github's Logo"
+                    alt="Github's Logo in Blue"
                     class="white-social-logo"
                   />
                 </a>
@@ -511,8 +511,8 @@
             <!-- BEGIN FORM -->
             <div class="contact-me-form">
               <form class="my-form">
-                <input type="text" name="_honey" style="display: none" />
-                <input type="hidden" name="_captcha" value="false" />
+                <input type="text" name="_honey" style="display: none" aria-hidden="true"/>
+                <input type="hidden" name="_captcha" value="false"aria-hidden="true" />
 
                 <input
                   type="hidden"

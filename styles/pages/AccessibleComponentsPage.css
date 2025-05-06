@@ -311,11 +311,11 @@ h2 {
 }
 
 h4 {
-  color: var(--navy, #03018b);
+  color: var(--navy, #03018b99);
   font-family: "Helvetica Neue";
   font-size: 22px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
   /* text-decoration: underline; */
 }
@@ -413,7 +413,6 @@ h4 {
   padding: 0px 0px;
 }
 
-
 .interview-insights-card {
   display: flex;
   padding: 48px 48px;
@@ -483,11 +482,36 @@ h4 {
   justify-items: center;
 }
 
-.state-model-frame img {
+.state-model-frame figure {
   border-radius: 25px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
+  padding: 32px;
+  background-color: #03018b;
+}
+
+.state-model-frame figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.state-model-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+.state-model-frame figcaption {
+  color: var(--navy, #ffffff);
+  font-family: "Helvetica Neue";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  padding-top: 10px;
 }
 
 /* TAKEAWAYS */
@@ -607,9 +631,7 @@ footer button {
     padding: 24px;
   }
 
-  nav
-
-  .header-card {
+  nav .header-card {
     padding: 24px;
   }
 
@@ -630,9 +652,16 @@ footer button {
     width: 100%;
   }
 
-  .footer-text, 
+  .footer-text,
   .resume-link {
     display: none;
   }
-  
+}
+.design-frame h5 {
+  color: var(--navy, #03018b);
+  font-family: "Helvetica Neue";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
