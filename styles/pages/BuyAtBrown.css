@@ -236,11 +236,11 @@ h2 {
 }
 
 h4 {
-  color: var(--navy, #2e298a);
+  color: var(--navy, #2e298a8d);
   font-family: "Helvetica Neue";
   font-size: 22px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
   /* text-decoration: underline; */
 }

@@ -146,6 +146,7 @@
   left: 0;
   overflow: hidden;
   z-index: 0;
+  pointer-events: none;
 }
 
 .gradient-container {
@@ -336,6 +337,7 @@ svg {
   user-select: none;
   transition: transform var(--transition-default),
     box-shadow var(--transition-default);
+  pointer-events: auto;
 }
 
 .name-card-star {
@@ -358,6 +360,7 @@ svg {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  pointer-events: auto;
 }
 
 .landing-text > :nth-child(1) {
