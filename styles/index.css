@@ -334,7 +334,6 @@ svg {
   justify-content: center;
   align-items: center;
   opacity: 0.9;
-  user-select: none;
   transition: transform var(--transition-default),
     box-shadow var(--transition-default);
   pointer-events: auto;
