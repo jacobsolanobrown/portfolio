@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { AsciiEffect } from 'three/addons/effects/AsciiEffect.js';
 
 const ThreeScene: React.FC = () => {
   // We use a ref to attach our Three.js canvas to the DOM
@@ -15,7 +16,7 @@ const ThreeScene: React.FC = () => {
     const height = containerRef.current.clientHeight;
 
     const scene = new THREE.Scene();
-    
+
     // use the right aspect ratio based on our container's size so it doesn't look stretched
     const aspect = width / height;
     const fov = 75; // how wide the camera's view is
@@ -26,18 +27,26 @@ const ThreeScene: React.FC = () => {
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(width, height);
-    
+
     // for macbooks to not look blurry
     renderer.setPixelRatio(window.devicePixelRatio);
-    
-    // append the canvas to our container div
-    containerRef.current.appendChild(renderer.domElement);
 
-    // setting up cube geometry and a light so we can see it 
+    // append the canvas to our container div
+    // containerRef.current.appendChild(renderer.domElement);
+
+    // Create the ASCII effect
+    const effect = new AsciiEffect(renderer, '@%#*+=-:. ', { scale: 1 });
+    effect.setSize(width, height);
+    containerRef.current.appendChild(effect.domElement);
+
+    // setting up cube geometry and a light so we can see it
     const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-    const light = new THREE.DirectionalLight(0xffffff, 5);
+    const light = new THREE.DirectionalLight(0xffffff, 10);
     light.position.set(-1, 2, 4);
     scene.add(light);
+
+    // sphere gemoetyr
+    // const geometry = new THREE.SphereGeometry(0.5, 32, 32);
 
     // make function to create cubes with different colors and positions
     function makeInstance(color: number, x: number) {
@@ -67,7 +76,7 @@ const ThreeScene: React.FC = () => {
         cube.rotation.y = rot;
       });
       // render the scene from the perspective of the camera
-      renderer.render(scene, camera);
+      effect.render(scene, camera);
       // request the next frame to keep the animation going
       frameId = requestAnimationFrame(render);
     };
@@ -84,9 +93,10 @@ const ThreeScene: React.FC = () => {
       // update the camera's aspect ratio and projection matrix so the scene doesn't look stretched
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
-      
+
       // update the renderer's size to fill the new dimensions
       renderer.setSize(newWidth, newHeight);
+      effect.setSize(newWidth, newHeight);
     };
 
     // listen for window resize events and call our handler
@@ -98,7 +108,8 @@ const ThreeScene: React.FC = () => {
       cancelAnimationFrame(frameId);
       // remove the canvas from the DOM and dispose of the renderer to free up resources
       if (containerRef.current) {
-        containerRef.current.removeChild(renderer.domElement);
+        // containerRef.current.removeChild(renderer.domElement);
+        containerRef.current.removeChild(effect.domElement);
       }
       renderer.dispose();
     };
@@ -107,7 +118,7 @@ const ThreeScene: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-screen block m-0 p-0 overflow-hidden bg-black"
+      className='w-full h-screen block m-0 p-0 overflow-hidden bg-black'
     />
   );
 };
