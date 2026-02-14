@@ -4,31 +4,12 @@ import ThreeScene from './ThreeScene';
 export default function Home() {
   return (
     <>
-      <div className='flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-blue-900'>
-        <main className='flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-blue-900 sm:items-start'>
-          <div className='flex flex-col items-center gap-6 text-center sm:items-start sm:text-left'>
-            <h1 className='max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50'>
-              JACOB SOLANO
-            </h1>
-            <p className='max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400'>
-              Looking for a starting point or more instructions? Head over to{' '}
-              <a
-                href='https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-                className='font-medium text-zinc-950 dark:text-zinc-50'
-              >
-                Templates
-              </a>{' '}
-              or the{' '}
-              <a
-                href='https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-                className='font-medium text-zinc-950 dark:text-zinc-50'
-              >
-                Learning
-              </a>{' '}
-              center.
-            </p>
-          </div>
+      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-background text-foreground'>
+        {/* <section>
           <ThreeScene />
+        </section> */}
+        <main className='flex mt-[125px] mb-[80px] ml-[300px] mr-[300px] flex-col items-center gap-10 self-stretch'>
+          <h1>testing</h1>
         </main>
       </div>
     </>

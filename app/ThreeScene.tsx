@@ -12,8 +12,8 @@ const ThreeScene: React.FC = () => {
     if (!containerRef.current) return;
 
     // get th einitial width and height of the container to set up our scene
-    const width = containerRef.current.clientWidth;
-    const height = containerRef.current.clientHeight;
+    const width = containerRef.current.clientWidth || window.innerWidth;
+    const height = containerRef.current.clientHeight || window.innerHeight;
 
     const scene = new THREE.Scene();
 
@@ -35,8 +35,17 @@ const ThreeScene: React.FC = () => {
     // containerRef.current.appendChild(renderer.domElement);
 
     // Create the ASCII effect
-    const effect = new AsciiEffect(renderer, '@%#*+=-:. ', { scale: 1 });
+    const effect = new AsciiEffect(renderer, ' .:-=+*#%@', { 
+      invert: true, // Use true if your background is dark
+      scale: 1 
+    });
     effect.setSize(width, height);
+
+
+    effect.domElement.style.color = 'white';
+    effect.domElement.style.backgroundColor = 'black';
+    effect.domElement.style.fontFamily = 'monospace';
+
     containerRef.current.appendChild(effect.domElement);
 
     // setting up cube geometry and a light so we can see it
