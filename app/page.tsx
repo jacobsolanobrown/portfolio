@@ -1,32 +1,31 @@
 import Image from 'next/image';
 import ThreeScene from './ThreeScene';
+import ProjectPost from './components/ProjectPost';
 
 export default function Home() {
   return (
     <>
-      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-background text-foreground'>
+      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/cat_ascii.jpg")] bg-repeat bg-[length:300px_200px] text-foreground'>
         {/* landing page section */}
         {/* <section>
           <ThreeScene />
         </section> */}
         {/* main content section */}
-        <main className='flex mt-[125px] mb-[80px] ml-[300px] mr-[300px] flex-col items-center gap-10 self-stretch'>
+        <main className='flex mt-[100px] mb-[80px] ml-[300px] mr-[300px] flex-col items-center gap-10 self-stretch'>
           {/* two columns sections together */}
           <div className='flex items-start gap-[60px] self-stretch'>
             {/* sticky card section */}
-            <div className='flex flex-col align-center gap-[30px]'>
+            <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[300px] flex flex-col items-start rounded-[5px] border-[1px] border-stone-50 border-solid overflow-hidden'>
+              <div className='w-[300px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden '>
                 <Image
-                  // dont include public in the path, nextjs automatically looks in the public folder for assets
                   src='/profile.jpeg'
                   width={300}
-                  height={300}
+                  height={300} // the height is not being affected
                   alt='picture of a cute creature'
                 />
-                {/* TODO: FIX THE WIDTH TO INHERIT FROM THE PHOTO - like fill container for figma */}
                 <div className='flex p-[30px] gap-[30px] flex-col justify-center align-center w-full text-wrap text-black bg-white'>
-                  <h2>jacob solano</h2>
+                  <h2 className='font-bold '>jacob solano</h2>
                   <p className='text-slate'>
                     i am a dreamer who loves software and whimsy. please contact
                     me if that interests you.
@@ -43,9 +42,9 @@ export default function Home() {
             {/* scrollable section */}
             <div className='flex flex-col items-start gap-[30px] text-black'>
               {/* about card */}
-              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[5px] border-[1px] border-stone-50 border-solid overflow-hidden bg-white'>
-                <h2 className='font-bold'>about</h2>
-                <p >
+              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[5px] border border-stone-200 border-solid overflow-hidden  bg-white'>
+                <h2 className='font-bold'>about ✧ 𝄞 ❤︎</h2>
+                <p>
                   hello i’m jacob solano and i study computer science at brown
                   university in quaint providence, ri. i love building visual
                   driven software and love making clean, usable systems because
@@ -60,7 +59,7 @@ export default function Home() {
                   <br />
                   the world is my oyster, and the world is also my cat
                 </p>
-                <h2 className='font-bold'>techstack</h2>
+                <h2 className='font-bold'>techstack ★ ｡ﾟ 𑣿 ⡴</h2>
                 <div className='flex flex-row justify-start items-start self-stretch'>
                   <p className='flex-1'>
                     frontend
@@ -94,6 +93,25 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+              {/* projects card */}
+              <ProjectPost
+                title='buy@brown'
+                imgSrc='/profile.jpeg'
+                description='buy@brown is a marketplace made for brown students to buy and sell items from each other'
+                date='December 11th, 2024'
+                githubLink='https://github.com/jacobsolanobrown/buyatbrown'
+                tags={['react', 'nextjs', 'tailwind', 'figma', 'clerk', 'firebase', 'java']}
+                coolglyph="(๑>؂•̀๑)"
+              />
+              <ProjectPost
+                title='toascii'
+                imgSrc='/ascii_cover.png'
+                description='a photo editor that transforms any image into ascii art, and it can also pixelate images...'
+                date='February 11th, 2024'
+                githubLink='hi.com'
+                tags={['javascript', 'html', 'css']}
+                coolglyph='>ᴗ<'
+              />
             </div>
           </div>
         </main>
