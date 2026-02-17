@@ -1,13 +1,94 @@
+'use client';
+
+import Image from 'next/image';
+import ProjectPost from '../components/ProjectPost';
+import Link from 'next/link';
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div>
-            <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-                Hello from the blog hi.tsx file!
-            </h1>
-        </div>
-      </main>
-    </div>
+    <>
+      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/snow.gif")] bg-repeat bg-[length:400px_100px] text-foreground'>
+        {/* main content section */}
+        <main className='flex mt-[100px] mb-[80px] ml-[300px] mr-[300px] flex-col items-center gap-10 self-stretch'>
+          {/* two columns sections together */}
+          <div className='flex items-start gap-[60px] self-stretch'>
+            {/* sticky card section */}
+            <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
+              {/* profile card  image width and div width must match*/}
+              <div className='w-[300px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white  text-black'>
+                <div className='group relative w-full aspect-square overflow-hidden'>
+                  <Image
+                    src='/profile.jpeg'
+                    alt='picture of a cute creature'
+                    fill // this makes the image fill the parent div
+                    className='object-cover transition-transform duration-700 group-hover:scale-105'
+                  />
+                  <Image
+                    src='/groovycat.gif'
+                    alt='slay cat dancing gif'
+                    fill
+                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+                  />
+                </div>
+                <div className='flex p-[30px] gap-[30px] flex-col justify-center align-center w-full text-wrap'>
+                  <h2 className='font-bold text-2xl text-blue-300'>
+                    case studies
+                    {/* ifelse {pathname === '/case_studies' ? '⭑' : ''}  */}
+                  </h2>
+                  {/* link options */}
+                  <div className=' flex flex-row align-start justify-between align-self'>
+                    {/* make ascii images of the logos using ur own tool omg! 30px x 30px */}
+                    <a href=''>email</a>
+                    <a href=''>github</a>
+                    <a href=''>linkedin</a>
+                  </div>
+                </div>
+              </div>
+              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white text-black'>
+                <p className='self-stretch underline font-semibold'>
+                  ⭑ <Link href={'/'}>projects</Link>
+                </p>
+                <p className='self-stretch underline font-semibold text-blue-300'>
+                  ⭑ <Link href={'/case_studies'}>case studies</Link>
+                </p>
+                <p className='self-stretch underline font-semibold'> ⭑ other</p>
+                <p className='self-stretch underline font-semibold'>⬇ resume</p>
+              </div>
+            </div>
+            {/* scrollable section */}
+            <div className='flex flex-col items-start gap-[30px] text-black'>
+              {/* about card */}
+              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[5px] border border-stone-200 border-solid overflow-hidden  bg-white'>
+                <h2 className='font-bold text-xl text-blue-300'>about ✧ 𝄞 ❤︎</h2>
+                <p>
+                  these are some of my case studies, which are more in depth
+                  looks at projects i’ve done, and the process behind them.
+                  they’re a little more personal and less polished than the
+                  projects on the projects page, but they’re fun to write about.
+                  please look at them if you want to see the more user-oriented
+                  way i design my projects.
+                </p>
+              </div>
+              {/* projects card */}
+              <ProjectPost
+                title='Tonys Big Cheese Pizza '
+                imgSrc='/tonys_images/redesigned-tonys.png'
+                description='Tonys Big Cheese Pizza is a popular pizzeria from my hometown (Yakima, Washington) that gets significant traffic. Their current website lacks usability and accessibility, which leads customers to often order by phone instead. Here I identify key usability and accessibility issues to redesign the site for a smoother, more responsive experience.'
+                date='march, 2025'
+                githubLink='https://jacobsolanobrown.github.io/pages/TonysBigCheesePizzaHomepage.html'
+                tags={[
+                  'html/css',
+                  'figma',
+                  'ui/ux',
+                  'user_research',
+                  'accessibility',
+                ]}
+                coolglyph='ദ്ദി(ᵔᗜᵔ)'
+              />
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
   );
 }

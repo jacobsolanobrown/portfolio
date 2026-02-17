@@ -5,7 +5,7 @@ interface ProjectPostProps {
   imgSrc: string;
   description: string;
   date: string;
-  githubLink: string;
+  githubLink?: string;
   tags: string[];
   websiteLink?: string;
   coolglyph: string
@@ -23,7 +23,7 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
 }) => {
   return (
     <div className='flex flex-col items-start self-stretch rounded-[5px] border border-stone-200 border-solid overflow-hidden  bg-white'>
-      <div className='flex flex-row p-[30px] gap-2 items-start align-self'>
+      <div className='flex flex-row p-[30px] gap-2 items-start align-self text-xl'>
         <h2 className='font-bold underline'>
           <a href={websiteLink}>{title}</a>
         </h2>
@@ -44,7 +44,7 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
         <div className='flex justify-between items-start self-stretch'>
           <p className='font-semibold'>{date}</p>
           <a href={githubLink} className='font-semibold underline'>
-            github
+            see code
           </a>
         </div>
         <p>
