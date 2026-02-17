@@ -54,12 +54,15 @@ export default function Home() {
                 <p className='self-stretch underline font-semibold text-blue-300'>
                   ⭑ <Link href={'/'}>projects</Link>
                 </p>
-                <p className='self-stretch underline font-semibold'>
+                <p className='self-stretch hover:underline font-semibold'>
                   ⭑ <Link href={'/case_studies'}>case studies</Link>
                 </p>
-                <p className='self-stretch underline font-semibold'> ⭑ other</p>
-                <p className='self-stretch underline font-semibold'>⬇ resume</p>
-
+                <p className='self-stretch hover:underline font-semibold'>
+                  ⭑ <Link href={'/other'}>other</Link>
+                </p>
+                <p className='self-stretch hover:underline font-semibold'>
+                  ⬇ resume
+                </p>
               </div>
             </div>
             {/* scrollable section */}
@@ -82,7 +85,9 @@ export default function Home() {
                   <br />
                   the world is my oyster, and the world is also my cat
                 </p>
-                <h2 className='font-bold text-xl text-blue-300'>techstack ★ ｡ﾟ 𑣿 ⡴</h2>
+                <h2 className='font-bold text-xl text-blue-300'>
+                  techstack ★ ｡ﾟ 𑣿 ⡴
+                </h2>
                 <div className='flex flex-row justify-start items-start self-stretch'>
                   <p className='flex-1'>
                     frontend
@@ -132,7 +137,8 @@ export default function Home() {
                   'firebase',
                   'java',
                 ]}
-                coolglyph='(๑>؂•̀๑)'
+                coolGlyph='(๑>؂•̀๑)'
+                colorTheme='#ec2c2c'
               />
               <ProjectPost
                 title='toascii'
@@ -141,7 +147,7 @@ export default function Home() {
                 date='february 11th, 2024'
                 githubLink='hi.com'
                 tags={['javascript', 'html', 'css']}
-                coolglyph='>ᴗ<'
+                coolGlyph='>ᴗ<'
               />
             </div>
           </div>

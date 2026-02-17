@@ -8,7 +8,8 @@ interface ProjectPostProps {
   githubLink?: string;
   tags: string[];
   websiteLink?: string;
-  coolglyph: string
+  coolGlyph: string;
+  colorTheme?: string;
 }
 
 const ProjectPost: React.FC<ProjectPostProps> = ({
@@ -19,15 +20,27 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
   githubLink,
   tags,
   websiteLink,
-  coolglyph
+  coolGlyph,
+  colorTheme,
 }) => {
   return (
-    <div className='flex flex-col items-start self-stretch rounded-[5px] border border-stone-200 border-solid overflow-hidden  bg-white'>
+    <div
+      style={{ '--theme-hover': colorTheme } as React.CSSProperties}
+      className='flex flex-col items-start self-stretch rounded-[5px] border border-stone-200 border-solid overflow-hidden  bg-white '
+    >
       <div className='flex flex-row p-[30px] gap-2 items-start align-self text-xl'>
-        <h2 className='font-bold underline'>
-          <a href={websiteLink}>{title}</a>
+        {/* ifelse {pathname === '/case_studies' ? '⭑' : ''}  */}
+        <h2 className='font-bold text-[var(--theme-hover)]'>
+          {websiteLink !== undefined ?
+            <a
+              className='text-[var(--theme-hover)] hover:underline'
+              href={websiteLink}
+            >
+              {title}
+            </a>
+          : title}{' '}
+          {coolGlyph}
         </h2>
-        <h2>{coolglyph}</h2>
       </div>
       <img
         src={imgSrc}
@@ -39,19 +52,22 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
           {description}
           <br />
           <br />
-          {coolglyph}
+          <span className='text-[var(--theme-hover)]'>{coolGlyph}</span>
         </p>
         <div className='flex justify-between items-start self-stretch'>
           <p className='font-semibold'>{date}</p>
-          <a href={githubLink} className='font-semibold underline'>
-            see code
+          <a
+            href={githubLink}
+            className={`font-semibold hover:underline hover:text-[var(--theme-hover)]`}
+          >
+            « see code »
           </a>
         </div>
         <p>
           {tags.map((tag, index) => (
             <span
               key={index}
-              className='inline-block text-gray-800 text-xs mr-2' 
+              className='inline-block text-gray-800 text-sm mr-2'
             >
               #{tag}
             </span>

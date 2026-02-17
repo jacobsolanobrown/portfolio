@@ -45,14 +45,18 @@ export default function Home() {
                 </div>
               </div>
               <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white text-black'>
-                <p className='self-stretch underline font-semibold'>
+                <p className='self-stretch hover:underline font-semibold'>
                   ⭑ <Link href={'/'}>projects</Link>
                 </p>
                 <p className='self-stretch underline font-semibold text-blue-300'>
                   ⭑ <Link href={'/case_studies'}>case studies</Link>
                 </p>
-                <p className='self-stretch underline font-semibold'> ⭑ other</p>
-                <p className='self-stretch underline font-semibold'>⬇ resume</p>
+                <p className='self-stretch hover:underline font-semibold'>
+                  ⭑ <Link href={'/other'}>other</Link>
+                </p>
+                <p className='self-stretch hover:underline font-semibold'>
+                  ⬇ <Link href={'/'}>resume</Link>
+                </p>
               </div>
             </div>
             {/* scrollable section */}
@@ -75,7 +79,8 @@ export default function Home() {
                 imgSrc='/tonys_images/redesigned-tonys.png'
                 description='Tonys Big Cheese Pizza is a popular pizzeria from my hometown (Yakima, Washington) that gets significant traffic. Their current website lacks usability and accessibility, which leads customers to often order by phone instead. Here I identify key usability and accessibility issues to redesign the site for a smoother, more responsive experience.'
                 date='march, 2025'
-                githubLink='https://jacobsolanobrown.github.io/pages/TonysBigCheesePizzaHomepage.html'
+                websiteLink='/case_studies/tonys'
+                githubLink='https://github.com/jacobsolanobrown/jacobsolanobrown.github.io/blob/main/pages/TonysBigCheesePizzaHomepage.html'
                 tags={[
                   'html/css',
                   'figma',
@@ -83,7 +88,8 @@ export default function Home() {
                   'user_research',
                   'accessibility',
                 ]}
-                coolglyph='ദ്ദി(ᵔᗜᵔ)'
+                coolGlyph='ദ്ദി(ᵔᗜᵔ)'
+                colorTheme='#6F1212'
               />
             </div>
           </div>
