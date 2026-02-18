@@ -8,13 +8,23 @@ export default function Home() {
     <>
       <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/cat_ascii.jpg")] bg-repeat bg-[length:300px_200px] text-foreground'>
         {/* landing page section */}
-        {/* <section>
-          <ThreeScene />
-        </section> */}
+        <section className='flex flex-row w-screen h-screen bg-blue-400'>
+          {/* name section */}
+          <div className='w-auto justify-center items-center hidden md:flex ml-[150px]'>
+            <h1 className='justify-center text-6xl text-white font-bold'>
+              jacob solano
+            </h1>
+          </div>
+          {/* globe section */}
+          <div className='flex-auto h-full min-w-0 justify-center items-center'>
+            <ThreeScene />
+          </div>
+        </section>
+
         {/* main content section */}
         <main className='flex mt-[100px] mb-[80px] ml-[300px] mr-[300px] flex-col items-center gap-10 self-stretch'>
           {/* two columns sections together */}
-          <div className='flex items-start gap-[60px] self-stretch'>
+          <div className='flex items-start gap-[60px] self-stretch '>
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
