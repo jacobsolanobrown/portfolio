@@ -15,7 +15,7 @@ export default function Home() {
             {/* <h1 className='justify-center text-6xl text-white font-bold'>
               jacob solano
             </h1> */}
-            <TextScramble text='software engineer' />
+            <TextScramble text='jacob solano' />
           </div>
           {/* globe section */}
           <div className='flex-auto h-full min-w-0 justify-center items-center'>
