@@ -16,9 +16,9 @@ const TextScramble: React.FC<TextScrambleProps> = ({ text }) => {
     // logic to scramble the text and update displayedText over time
     // basically have chars scramble for a bit and then reveal the correct char one by one until the full text is revealed -
     // have two timers, one for scrambling and one for revealing, and clear them when the component unmounts or when the text changes
-    
+
     const characters =
-      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?'; // chars to use for scrambling
     const scrambleIntervalTime = 50; // how often to update the scrambled text
     const revealIntervalTime = 200; // how often to reveal chars after the timeout
     const revealTimeoutTime = 3000; // when to start revealing chars, after scrambling for a bit
@@ -77,7 +77,7 @@ const TextScramble: React.FC<TextScrambleProps> = ({ text }) => {
 
   return (
     <div>
-      <h1 className='tracking-widest text-6xl'>{displayedText}</h1>
+      <h1 className='tracking-widest font-mono text-6xl'>{displayedText}</h1>
     </div>
   );
 };

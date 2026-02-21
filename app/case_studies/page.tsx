@@ -15,7 +15,7 @@ export default function Home() {
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[300px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white  text-black'>
+              <div className='w-[250px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white  text-black'>
                 <div className='group relative w-full aspect-square overflow-hidden'>
                   <Image
                     src='/profile.jpeg'
@@ -38,9 +38,9 @@ export default function Home() {
                   {/* link options */}
                   <div className=' flex flex-row align-start justify-between align-self'>
                     {/* make ascii images of the logos using ur own tool omg! 30px x 30px */}
-                    <a href=''>email</a>
-                    <a href=''>github</a>
-                    <a href=''>linkedin</a>
+                    <a href='mailto:gilbert_solano@brown.edu'>email</a>
+                    <a href='https://github.com/jacobsolanobrown'>github</a>
+                    <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>linkedin</a>
                   </div>
                 </div>
               </div>
@@ -51,12 +51,12 @@ export default function Home() {
                 <p className='self-stretch underline font-semibold text-blue-300'>
                   ⭑ <Link href={'/case_studies'}>case studies</Link>
                 </p>
-                <p className='self-stretch hover:underline font-semibold'>
+                {/* <p className='self-stretch hover:underline font-semibold'>
                   ⭑ <Link href={'/other'}>other</Link>
-                </p>
-                <p className='self-stretch hover:underline font-semibold'>
+                </p> */}
+                {/* <p className='self-stretch hover:underline font-semibold'>
                   ⬇ <Link href={'/'}>resume</Link>
-                </p>
+                </p> */}
               </div>
             </div>
             {/* scrollable section */}
