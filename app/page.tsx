@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import ThreeScene from './ThreeScene';
 import ProjectPost from './components/ProjectPost';
+import TextScramble from './components/TextScramble';
 import Link from 'next/link';
 
 export default function Home() {
@@ -11,9 +12,10 @@ export default function Home() {
         <section className='flex flex-row w-screen h-screen bg-blue-400'>
           {/* name section */}
           <div className='w-auto justify-center items-center hidden md:flex ml-[150px]'>
-            <h1 className='justify-center text-6xl text-white font-bold'>
+            {/* <h1 className='justify-center text-6xl text-white font-bold'>
               jacob solano
-            </h1>
+            </h1> */}
+            <TextScramble text='software engineer' />
           </div>
           {/* globe section */}
           <div className='flex-auto h-full min-w-0 justify-center items-center'>
