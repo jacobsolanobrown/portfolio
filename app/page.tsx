@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/cat_ascii.jpg")] bg-repeat bg-[length:300px_200px] text-foreground'>
+      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/snow.gif")] bg-repeat bg-[length:400px_80px] text-foreground'>
         {/* landing page section */}
         <section className='flex flex-row w-screen h-screen bg-blue-400'>
           {/* name section */}
@@ -30,27 +30,27 @@ export default function Home() {
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-200 border-solid overflow-hidden bg-white gap-[15px] text-black p-[15px]'>
+              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-200 border-solid overflow-hidden bg-white  text-black '>
                 <div className='group relative w-full aspect-square overflow-hidden'>
                   <Image
                     src='/slaycat.gif'
                     alt='slay cat dancing gif'
                     fill
-                    className='object-cover transition-transform duration-700 group-hover:scale-105 rounded-[7px] border border-stone-200 border-solid'
+                    className='object-cover transition-transform duration-700 group-hover:scale-105 border border-stone-200 border-solid'
                   />
                   <Image
                     src='/profile.jpeg'
                     alt='picture of a cute creature'
                     fill // this makes the image fill the parent div
-                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-[7px] border border-stone-200 border-solid'
+                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100  border border-stone-200 border-solid'
                     // this makes the image cover the div and adds a zoom effect on hover
                   />
                 </div>
-                <div className='flex p-0 gap-[30px] flex-col justify-center align-center w-full text-wrap'>
+                <div className='flex p-[30px] gap-[30px]   flex-col justify-center align-center w-full text-wrap'>
                   <h2 className='font-bold text-2xl text-blue-300'>
-                    jacob solano :3
+                    jacob solano
                   </h2>
-                  <p className='text-slate'>
+                  <p className='text-slate text-center text-sm'>
                     i am a dreamer who loves software and whimsy. please contact
                     me if that interests you.
                   </p>
@@ -62,33 +62,33 @@ export default function Home() {
                       <Image
                         alt='email icon'
                         src='/mail_icon.png'
-                        width={50}
-                        height={50}
-                        className='rounded-[5px]'
+                        width={40}
+                        height={40}
+                        className='rounded-[10px]'
                       />
                     </a>
                     <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>
                       <Image
                         alt='linkedin icon'
                         src='/linkedin_icon.png'
-                        width={50}
-                        height={50}
-                        className='rounded-[5px]'
+                        width={40}
+                        height={40}
+                        className='rounded-[10px]'
                       />
                     </a>
                     <a href='https://github.com/jacobsolanobrown'>
                       <Image
                         alt='github icon'
                         src='/github_icon.png'
-                        width={50}
-                        height={50}
-                        className='rounded-[5px]'
+                        width={40}
+                        height={40}
+                        className='rounded-[10px]'
                       />
                     </a>
                   </div>
                 </div>
               </div>
-              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white text-black'>
+              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[10px] border border-stone-200 border-solid overflow-hidden bg-white text-black'>
                 <p className='self-stretch underline font-semibold text-blue-300'>
                   ⭑ <Link href={'/'}>projects</Link>
                 </p>
@@ -106,16 +106,16 @@ export default function Home() {
             {/* scrollable section */}
             <div className='flex flex-col items-start gap-[30px] text-black'>
               {/* about card */}
-              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[5px] border border-stone-200 border-solid overflow-hidden  bg-white'>
+              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[10px] border border-stone-200 border-solid overflow-hidden  gbg-white '>
                 <h2 className='font-bold text-xl text-blue-300'>about ✧ 𝄞 ❤︎</h2>
                 <p>
-                  hello i’m jacob and i study computer science at brown
+                  hello i'm jacob and i study computer science at brown
                   university in quaint providence, ri. i love building visual
                   driven software and love making clean, usable systems because
                   systems are inherently visual in my head.
                   <br />
                   <br />
-                  i’ve developed entire full-stack applications with apis,
+                  i've developed entire full-stack applications with apis,
                   databases, auth and all that... i also have experience with
                   data engineering, machine learning, and ui/ux design. my
                   projects are down below...
