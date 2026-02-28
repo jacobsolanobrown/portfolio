@@ -15,21 +15,23 @@ export default function Home() {
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[250px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white  text-black'>
+              <div className='w-[200px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white  text-black'>
+                {/* images */}
                 <div className='group relative w-full aspect-square overflow-hidden'>
-                  <Image
-                    src='/profile.jpeg'
-                    alt='picture of a cute creature'
-                    fill // this makes the image fill the parent div
-                    className='object-cover transition-transform duration-700 group-hover:scale-105'
-                  />
                   <Image
                     src='/groovycat.gif'
                     alt='slay cat dancing gif'
                     fill
+                    className='object-cover transition-transform duration-700 group-hover:scale-105'
+                  />
+                  <Image
+                    src='/profile.jpeg'
+                    alt='picture of a cute creature'
+                    fill // this makes the image fill the parent div
                     className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100'
                   />
                 </div>
+                
                 <div className='flex p-[30px] gap-[30px] flex-col justify-center align-center w-full text-wrap'>
                   <h2 className='font-bold text-2xl text-blue-300'>
                     case studies
@@ -40,7 +42,9 @@ export default function Home() {
                     {/* make ascii images of the logos using ur own tool omg! 30px x 30px */}
                     <a href='mailto:gilbert_solano@brown.edu'>email</a>
                     <a href='https://github.com/jacobsolanobrown'>github</a>
-                    <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>linkedin</a>
+                    <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>
+                      linkedin
+                    </a>
                   </div>
                 </div>
               </div>

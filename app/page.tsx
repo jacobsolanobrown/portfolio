@@ -11,7 +11,7 @@ export default function Home() {
         {/* landing page section */}
         <section className='flex flex-row w-screen h-screen bg-blue-400'>
           {/* name section */}
-          <div className='w-auto justify-center items-center hidden md:flex ml-[150px]'>
+          <div className='w-auto justify-center items-center hidden md:flex ml-[150px] text-white'>
             {/* <h1 className='justify-center text-6xl text-white font-bold'>
               jacob solano
             </h1> */}
@@ -24,28 +24,29 @@ export default function Home() {
         </section>
 
         {/* main content section */}
-        <main className='flex mt-[100px] mb-[80px] ml-[300px] mr-[300px] flex-col items-center gap-10 self-stretch'>
+        <main className='flex mt-[100px] mb-[80px] ml-75 mr-75 flex-col items-center gap-10 self-stretch'>
           {/* two columns sections together */}
-          <div className='flex items-start gap-[60px] self-stretch '>
+          <div className='flex items-start gap-[60px] self-stretch'>
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[250px] flex flex-col items-start rounded-[5px] border border-stone-200 border-solid overflow-hidden bg-white  text-black'>
+              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-200 border-solid overflow-hidden bg-white gap-[15px] text-black p-[15px]'>
                 <div className='group relative w-full aspect-square overflow-hidden'>
-                  <Image
-                    src='/profile.jpeg'
-                    alt='picture of a cute creature'
-                    fill // this makes the image fill the parent div
-                    className='object-cover transition-transform duration-700 group-hover:scale-105'
-                  />
                   <Image
                     src='/slaycat.gif'
                     alt='slay cat dancing gif'
                     fill
-                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100'
+                    className='object-cover transition-transform duration-700 group-hover:scale-105 rounded-[7px] border border-stone-200 border-solid'
+                  />
+                  <Image
+                    src='/profile.jpeg'
+                    alt='picture of a cute creature'
+                    fill // this makes the image fill the parent div
+                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-[7px] border border-stone-200 border-solid'
+                    // this makes the image cover the div and adds a zoom effect on hover
                   />
                 </div>
-                <div className='flex p-[30px] gap-[30px] flex-col justify-center align-center w-full text-wrap'>
+                <div className='flex p-0 gap-[30px] flex-col justify-center align-center w-full text-wrap'>
                   <h2 className='font-bold text-2xl text-blue-300'>
                     jacob solano :3
                   </h2>
@@ -56,9 +57,34 @@ export default function Home() {
                   {/* link options */}
                   <div className=' flex flex-row align-start justify-between align-self'>
                     {/* make ascii images of the logos using ur own tool omg! 30px x 30px */}
-                    <a href='mailto:gilbert_solano@brown.edu'>email</a>
-                    <a href='https://github.com/jacobsolanobrown'>github</a>
-                    <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>linkedin</a>
+
+                    <a href='mailto:gilbert_solano@brown.edu'>
+                      <Image
+                        alt='email icon'
+                        src='/mail_icon.png'
+                        width={50}
+                        height={50}
+                        className='rounded-[5px]'
+                      />
+                    </a>
+                    <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>
+                      <Image
+                        alt='linkedin icon'
+                        src='/linkedin_icon.png'
+                        width={50}
+                        height={50}
+                        className='rounded-[5px]'
+                      />
+                    </a>
+                    <a href='https://github.com/jacobsolanobrown'>
+                      <Image
+                        alt='github icon'
+                        src='/github_icon.png'
+                        width={50}
+                        height={50}
+                        className='rounded-[5px]'
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
