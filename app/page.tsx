@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import ThreeScene from './ThreeScene';
 import ProjectPost from './components/ProjectPost';
-import TextScramble from './components/TextScramble';
+import HeroText from './components/HeroText';
 import Link from 'next/link';
 import BackToTop from './components/BackToTop';
 
@@ -19,7 +19,7 @@ export default function Home() {
             {/* <h1 className='justify-center text-6xl text-white font-bold'>
               jacob solano
             </h1> */}
-            <TextScramble text='jacob solano' />
+            <HeroText />
           </div>
           {/* globe section */}
           <div className='flex-auto h-full min-w-0 justify-center items-center'>

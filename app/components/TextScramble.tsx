@@ -5,11 +5,11 @@ import React from 'react';
 import { useEffect } from 'react';
 
 interface TextScrambleProps {
-  // Add your props here
   text: string;
+  onComplete?: () => void;
 }
 
-const TextScramble: React.FC<TextScrambleProps> = ({ text }) => {
+const TextScramble: React.FC<TextScrambleProps> = ({ text, onComplete }) => {
   const [displayedText, setDisplayedText] = React.useState('');
 
   useEffect(() => {
@@ -63,6 +63,7 @@ const TextScramble: React.FC<TextScrambleProps> = ({ text }) => {
           clearInterval(revealInterval);
           clearInterval(myScrambleInterval);
           setDisplayedText(text); // ensure final text is clean
+          onComplete?.();
         }
       }, revealIntervalTime); // update the reveal interval time to control how fast chars are revealed
     }, revealTimeoutTime); // update the wait time to control how long the scrambling happens before revealing starts
