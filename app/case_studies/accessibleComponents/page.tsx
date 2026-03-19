@@ -9,7 +9,7 @@ export default function AccessibleDesignCaseStudy() {
       {/* entire page */}
       <div className='bg-white flex flex-col items-start w-screen min-h-screen'>
         {/* page section */}
-        <div className='bg-[url("/pizza_ascii.png")] bg-repeat bg-[length:200px_200px] flex flex-col items-center overflow-clip pb-[80px] pt-[125px] px-[150px] w-full'>
+        <div className='bg-[url("/star_ascii.png")] bg-repeat bg-[length:200px_200px] flex flex-col items-center overflow-clip pb-[80px] pt-[125px] px-[150px] w-full'>
           {/* the smaller section holding both elems */}
           <div className='flex gap-[60px] items-start w-full'>
             {/* the sticky section */}
