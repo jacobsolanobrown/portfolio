@@ -26,7 +26,7 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
   return (
     <div
       style={{ '--theme-hover': colorTheme } as React.CSSProperties}
-      className='flex flex-col items-start self-stretch rounded-[10px] border border-stone-200 border-solid overflow-hidden  bg-white '
+      className='flex flex-col items-start self-stretch rounded-[10px] border border-stone-400 border-solid overflow-hidden  bg-white '
     >
       <div className='flex flex-row p-[30px] gap-2 items-start align-self text-xl'>
         {/* ifelse {pathname === '/case_studies' ? '⭑' : ''}  */}
@@ -56,12 +56,14 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
         </p>
         <div className='flex justify-between items-start self-stretch'>
           <p className='font-semibold'>{date}</p>
-          <a
-            href={githubLink}
-            className={`font-semibold hover:underline hover:text-[var(--theme-hover)]`}
-          >
-            « see code »
-          </a>
+          {githubLink !== undefined ?
+            <a
+              href={githubLink}
+              className={`font-semibold hover:underline hover:text-[var(--theme-hover)]`}
+            >
+              « see code »
+            </a>
+          : null }
         </div>
         <p>
           {tags.map((tag, index) => (

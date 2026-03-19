@@ -30,19 +30,19 @@ export default function Home() {
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-200 border-solid overflow-hidden bg-white  text-black '>
+              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white  text-black '>
                 <div className='group relative w-full aspect-square overflow-hidden'>
                   <Image
                     src='/slaycat.gif'
                     alt='slay cat dancing gif'
                     fill
-                    className='object-cover transition-transform duration-700 group-hover:scale-105 border border-stone-200 border-solid'
+                    className='object-cover transition-transform duration-700 group-hover:scale-105 border border-stone-400 border-solid'
                   />
                   <Image
                     src='/profile.jpeg'
                     alt='picture of a cute creature'
                     fill // this makes the image fill the parent div
-                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100  border border-stone-200 border-solid'
+                    className='object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100  border border-stone-400 border-solid'
                     // this makes the image cover the div and adds a zoom effect on hover
                   />
                 </div>
@@ -50,7 +50,7 @@ export default function Home() {
                   <h2 className='font-bold text-2xl text-blue-300'>
                     jacob solano
                   </h2>
-                  <p className='text-slate text-center text-sm'>
+                  <p className='text-slate text-sm'>
                     i am a dreamer who loves software and whimsy. please contact
                     me if that interests you.
                   </p>
@@ -64,7 +64,7 @@ export default function Home() {
                         src='/mail_icon.png'
                         width={40}
                         height={40}
-                        className='rounded-[10px]'
+                        className='rounded-[5px]'
                       />
                     </a>
                     <a href='https://www.linkedin.com/in/jacob-solano-92587226b/'>
@@ -73,7 +73,7 @@ export default function Home() {
                         src='/linkedin_icon.png'
                         width={40}
                         height={40}
-                        className='rounded-[10px]'
+                        className='rounded-[5px]'
                       />
                     </a>
                     <a href='https://github.com/jacobsolanobrown'>
@@ -82,13 +82,13 @@ export default function Home() {
                         src='/github_icon.png'
                         width={40}
                         height={40}
-                        className='rounded-[10px]'
+                        className='rounded-[5px]'
                       />
                     </a>
                   </div>
                 </div>
               </div>
-              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[10px] border border-stone-200 border-solid overflow-hidden bg-white text-black'>
+              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white text-black'>
                 <p className='self-stretch underline font-semibold text-blue-300'>
                   ⭑ <Link href={'/'}>projects</Link>
                 </p>
@@ -106,7 +106,7 @@ export default function Home() {
             {/* scrollable section */}
             <div className='flex flex-col items-start gap-[30px] text-black'>
               {/* about card */}
-              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[10px] border border-stone-200 border-solid overflow-hidden  bg-white '>
+              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[10px] border border-stone-400 border-solid overflow-hidden  bg-white '>
                 <h2 className='font-bold text-xl text-blue-300'>about ✧ 𝄞 ❤︎</h2>
                 <p>
                   hello i'm jacob and i study computer science at brown
@@ -119,9 +119,7 @@ export default function Home() {
                   databases, auth and all that... i also have experience with
                   data engineering, machine learning, and ui/ux design. my
                   projects are down below...
-                  <br />
-                  <br />
-                  the world is my oyster, and the world is also my cat
+
                 </p>
                 <h2 className='font-bold text-xl text-blue-300'>
                   techstack ★ ｡ﾟ 𑣿 ⡴
@@ -175,7 +173,7 @@ export default function Home() {
                   'firebase',
                   'java',
                 ]}
-                coolGlyph='(๑>؂•̀๑)'
+                coolGlyph=''
                 colorTheme='#ec2c2c'
               />
               <ProjectPost
@@ -186,7 +184,7 @@ export default function Home() {
                 githubLink='https://github.com/jacobsolanobrown/ascii-test'
                 websiteLink='https://jacobsolanobrown.github.io/ascii-test/'
                 tags={['javascript', 'html', 'css']}
-                coolGlyph='>ᴗ<'
+                coolGlyph=''
                 colorTheme='#5999B5'
               />
             </div>
