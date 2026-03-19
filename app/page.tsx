@@ -3,11 +3,15 @@ import ThreeScene from './ThreeScene';
 import ProjectPost from './components/ProjectPost';
 import TextScramble from './components/TextScramble';
 import Link from 'next/link';
+import BackToTop from './components/BackToTop';
 
 export default function Home() {
   return (
     <>
-      <div className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/snow.gif")] bg-repeat bg-[length:400px_80px] text-foreground'>
+      <div
+        id='top'
+        className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/snow.gif")] bg-repeat bg-[length:400px_80px] text-foreground'
+      >
         {/* landing page section */}
         <section className='flex flex-row w-screen h-screen bg-blue-400'>
           {/* name section */}
@@ -109,13 +113,13 @@ export default function Home() {
               <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[10px] border border-stone-400 border-solid overflow-hidden  bg-white '>
                 <h2 className='font-bold text-xl text-blue-300'>about ✧ 𝄞 ❤︎</h2>
                 <p>
-                  hello i'm jacob and i study computer science at brown
+                  hello i&apos;m jacob and i study computer science at brown
                   university in quaint providence, ri. i love building visual
                   driven software and love making clean, usable systems because
                   systems are inherently visual in my head.
                   <br />
                   <br />
-                  i've developed entire full-stack applications with apis,
+                  i&apos;ve developed entire full-stack applications with apis,
                   databases, auth and all that... i also have experience with
                   data engineering, machine learning, and ui/ux design. my
                   projects are down below...
@@ -190,6 +194,10 @@ export default function Home() {
             </div>
           </div>
         </main>
+
+        <footer className='flex justify-center w-full pb-10'>
+          <BackToTop />
+        </footer>
       </div>
     </>
   );
