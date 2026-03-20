@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <div
         id='top'
-        className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-[url("/snow.gif")] bg-repeat bg-[length:400px_80px] text-foreground'
+        className='flex flex-col align-center items-start w-screen min-h-screen m-0 p-0 bg-white text-foreground'
       >
         {/* landing page section */}
         <section className='flex flex-row w-screen h-screen bg-blue-400'>
@@ -28,13 +28,21 @@ export default function Home() {
         </section>
 
         {/* main content section */}
-        <main className='flex mt-[100px] mb-[80px] ml-75 mr-75 flex-col items-center gap-10 self-stretch'>
+        <div className='relative w-full bg-white overflow-clip'>
+          {/* animated gradient blob */}
+          <div aria-hidden='true' className='absolute inset-0 pointer-events-none'>
+            <div className='blob-container'>
+              <div className='blob-gradient' />
+            </div>
+            <div className='bg-grid' />
+          </div>
+        <main className='flex mt-[100px] mb-[80px] ml-75 mr-75 flex-col items-center gap-10 self-stretch relative z-10'>
           {/* two columns sections together */}
           <div className='flex items-start gap-[60px] self-stretch'>
             {/* sticky card section */}
             <div className='flex flex-col align-center gap-[30px] sticky top-[100px] self-start'>
               {/* profile card  image width and div width must match*/}
-              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white  text-black '>
+              <div className='w-[250px] flex flex-col items-start rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white/60 backdrop-blur-md text-black '>
                 <div className='group relative w-full aspect-square overflow-hidden'>
                   <Image
                     src='/slaycat.gif'
@@ -92,7 +100,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white text-black'>
+              <div className='flex flex-col p-[30px] justify-center self-stretch gap-[30px] rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white/60 backdrop-blur-md text-black'>
                 <p className='self-stretch underline font-semibold text-blue-300'>
                   ⭑ <Link href={'/'}>projects</Link>
                 </p>
@@ -110,7 +118,7 @@ export default function Home() {
             {/* scrollable section */}
             <div className='flex flex-col items-start gap-[30px] text-black'>
               {/* about card */}
-              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[10px] border border-stone-400 border-solid overflow-hidden  bg-white '>
+              <div className='flex flex-col p-[30px] gap-[30px] items-start align-self rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white/60 backdrop-blur-md'>
                 <h2 className='font-bold text-xl text-blue-300'>about ✧ 𝄞 ❤︎</h2>
                 <p>
                   hello i&apos;m jacob and i study computer science at brown
@@ -194,6 +202,7 @@ export default function Home() {
             </div>
           </div>
         </main>
+        </div>
 
         <footer className='flex justify-center w-full pb-10'>
           <BackToTop />

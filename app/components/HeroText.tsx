@@ -10,13 +10,13 @@ const HeroText: React.FC = () => {
     <div className='flex flex-col gap-4'>
       <TextScramble text='jacob solano' onComplete={() => setShowTagline(true)} />
       <div
-        className={`font-mono tracking-widest text-white text-sm transition-all duration-700 ${
+        className={`font-mono tracking-widest text-white text-xl transition-all duration-700 ${
           showTagline ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
         }`}
       >
         cs @ brown · full-stack engineer
         <br />
-        ux research + usability · polished user-facing systems
+        ux research + usability
       </div>
     </div>
   );

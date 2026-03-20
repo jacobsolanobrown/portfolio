@@ -18,3 +18,54 @@
     --foreground: #ededed;
   }
 }
+
+/* animation to make the blob float around */
+@keyframes blobFloat {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  20% {
+    transform: translate(calc(50vw - 450px), calc(-50vh + 300px)) scale(1.05);
+  }
+  40% {
+    transform: translate(calc(-50vw + 450px), calc(50vh - 300px)) scale(0.95);
+  }
+  60% {
+    transform: translate(calc(50vw - 450px), calc(50vh - 300px)) scale(1.08);
+  }
+  80% {
+    transform: translate(calc(-50vw + 450px), calc(-50vh + 300px)) scale(0.98);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.blob-container {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  top: 50%;
+  left: 50%;
+  margin-top: -450px;
+  margin-left: -450px;
+  border-radius: 20% 40% 55% 45% / 50% 60% 40% 50%;
+  mask-image: radial-gradient(ellipse 70% 70% at center, black 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at center, black 0%, transparent 65%);
+  animation: blobFloat 22s ease-in-out infinite;
+}
+
+.blob-gradient {
+  position: absolute;
+  inset: 0;
+  background: #93c5fd;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size: 28px 28px;
+}

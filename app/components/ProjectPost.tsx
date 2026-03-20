@@ -26,7 +26,7 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
   return (
     <div
       style={{ '--theme-hover': colorTheme } as React.CSSProperties}
-      className='flex flex-col items-start self-stretch rounded-[10px] border border-stone-400 border-solid overflow-hidden  bg-white '
+      className='flex flex-col items-start self-stretch rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white/60 backdrop-blur-md'
     >
       <div className='flex flex-row p-[30px] gap-2 items-start align-self text-xl'>
         {/* ifelse {pathname === '/case_studies' ? '⭑' : ''}  */}
