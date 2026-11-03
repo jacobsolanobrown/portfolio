@@ -211,8 +211,16 @@ export default function Home() {
         </main>
         </div>
 
-        <footer className='flex justify-center w-full pb-10'>
+        {/* footer: "back to top" stays centered, the previous-portfolio link sits to its right */}
+        <footer className='grid grid-cols-[1fr_auto_1fr] items-center w-full px-10 pb-10'>
+          <div />
           <BackToTop />
+          <a
+            href='https://jacobsolanobrown.github.io'
+            className='justify-self-end p-[15px_30px] rounded-[10px] border border-stone-400 border-solid bg-white text-black font-semibold hover:bg-blue-700 hover:text-white transition-colors'
+          >
+            previous portfolio <span aria-hidden='true'>↗</span>
+          </a>
         </footer>
       </div>
     </>
