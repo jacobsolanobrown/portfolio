@@ -3,6 +3,7 @@ import React from 'react';
 interface ProjectPostProps {
   title: string;
   imgSrc: string;
+  imgAlt?: string; // describe what the screenshot shows, for screen readers
   description: string;
   date: string;
   githubLink?: string;
@@ -10,11 +11,13 @@ interface ProjectPostProps {
   websiteLink?: string;
   coolGlyph: string;
   colorTheme?: string;
+  solid?: boolean; // opaque white card instead of the see-through one (for busy backgrounds)
 }
 
 const ProjectPost: React.FC<ProjectPostProps> = ({
   title,
   imgSrc,
+  imgAlt,
   description,
   date,
   githubLink,
@@ -22,11 +25,14 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
   websiteLink,
   coolGlyph,
   colorTheme,
+  solid = false,
 }) => {
   return (
     <div
       style={{ '--theme-hover': colorTheme } as React.CSSProperties}
-      className='flex flex-col items-start self-stretch rounded-[10px] border border-stone-400 border-solid overflow-hidden bg-white/60 backdrop-blur-md'
+      className={`flex flex-col items-start self-stretch rounded-[10px] border border-stone-400 border-solid overflow-hidden ${
+        solid ? 'bg-white' : 'bg-white/60 backdrop-blur-md'
+      }`}
     >
       <div className='flex flex-row p-[30px] gap-2 items-start align-self text-xl'>
         {/* ifelse {pathname === '/case_studies' ? '⭑' : ''}  */}
@@ -39,12 +45,13 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
               {title}
             </a>
           : title}{' '}
-          {coolGlyph}
+          {/* decorative kaomoji: hidden from screen readers */}
+          {coolGlyph && <span aria-hidden='true'>{coolGlyph}</span>}
         </h2>
       </div>
       <img
         src={imgSrc}
-        alt={`${title} screenshot`}
+        alt={imgAlt ?? `${title} screenshot`}
         className='w-full h-auto object-cover self-stretch'
       />
       <div className='flex flex-col p-[30px] gap-[20px] items-start align-self self-stretch'>
@@ -52,7 +59,9 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
           {description}
           <br />
           <br />
-          <span className='text-[var(--theme-hover)]'>{coolGlyph}</span>
+          <span aria-hidden='true' className='text-[var(--theme-hover)]'>
+            {coolGlyph}
+          </span>
         </p>
         <div className='flex justify-between items-start self-stretch'>
           <p className='font-semibold'>{date}</p>
@@ -61,20 +70,24 @@ const ProjectPost: React.FC<ProjectPostProps> = ({
               href={githubLink}
               className={`font-semibold hover:underline hover:text-[var(--theme-hover)]`}
             >
-              « see code »
+              <span aria-hidden='true'>« </span>see code
+              {/* every card says "see code", so screen readers also hear which project */}
+              <span className='sr-only'> for {title.trim()} on GitHub</span>
+              <span aria-hidden='true'> »</span>
             </a>
           : null }
         </div>
-        <p>
+        <ul aria-label='tags'>
           {tags.map((tag, index) => (
-            <span
+            <li
               key={index}
               className='inline-block text-gray-800 text-sm mr-2'
             >
-              #{tag}
-            </span>
+              <span aria-hidden='true'>#</span>
+              {tag}
+            </li>
           ))}
-        </p>
+        </ul>
       </div>
     </div>
   );

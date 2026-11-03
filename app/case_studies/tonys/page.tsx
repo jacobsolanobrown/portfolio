@@ -1,7 +1,11 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// browser tab / screen reader page title
+export const metadata: Metadata = {
+  title: "Tony's Big Cheese Pizza case study",
+};
 
 export default function CaseStudyPage() {
   return (
@@ -16,9 +20,10 @@ export default function CaseStudyPage() {
             <div className='flex flex-col gap-[30px] items-center overflow-clip w-[300px] sticky top-[125px]'>
               {/*  */}
               <div className='border border-stone-200 border-solid flex flex-col items-start rounded-[5px] bg-white gap-[30px] p-[30px] w-[292px]'>
-                <h2 className='font-bold text-2xl text-red-400 w-full'>
-                  Tony's Big Cheese Pizza ☆
-                </h2>
+                {/* the page's main heading */}
+                <h1 className='font-bold text-2xl text-red-700 w-full'>
+                  Tony's Big Cheese Pizza <span aria-hidden='true'>☆</span>
+                </h1>
                 <p className='font-normal h-[75px] text-stone-500 text-[16px] w-full'>
                   A UI/UX case study on improving the customer experience for a
                   local restaurant.
@@ -32,9 +37,14 @@ export default function CaseStudyPage() {
                 </div>
               </div>
               {/* other navs */}
-              <div className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center justify-center overflow-clip p-[30px] rounded-[5px] w-full text-black'>
+              <nav
+                aria-label='on this page'
+                className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center justify-center overflow-clip p-[30px] rounded-[5px] w-full text-black'
+              >
                 <p className='font-bold underline w-full'>
-                  <Link href='/case_studies'>back</Link>
+                  <Link href='/case_studies'>
+                    back<span className='sr-only'> to case studies</span>
+                  </Link>
                 </p>
                 <p className='font-semibold w-full'>
                   <a href='#introduction'>introduction</a>
@@ -48,10 +58,10 @@ export default function CaseStudyPage() {
                 <p className='font-semibold w-full'>
                   <a href='#takeaways'>takeaways</a>
                 </p>
-              </div>
+              </nav>
             </div>
-            {/* the scrollable section */}
-            <div className='flex flex-1 flex-col gap-[30px] items-start'>
+            {/* the scrollable section (the skip link jumps here) */}
+            <main id='main' className='flex flex-1 flex-col gap-[30px] items-start'>
               <div
                 id='introduction'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-start overflow-clip p-[30px] rounded-[5px] w-full'
@@ -59,6 +69,8 @@ export default function CaseStudyPage() {
                 {/* <h2 className='font-bold justify-center text-[18px] text-black w-full'>
                   Tony's Big Cheese Pizza
                 </h2> */}
+                {/* invisible heading so screen reader users can jump to this section like the others */}
+                <h2 className='sr-only'>introduction</h2>
                 <div className='h-[398px] w-full relative'>
                   <Image
                     src='/tonys_images/mockup-tonys.png'
@@ -92,9 +104,11 @@ export default function CaseStudyPage() {
                 id='problem'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center overflow-clip p-[30px] rounded-[5px] w-full'
               >
-                <h3 className='font-bold text-[18px] text-red-400'>
-                  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ problem *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-                </h3>
+                <h2 className='font-bold text-[18px] text-red-700'>
+                  <span aria-hidden='true'>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </span>
+                  problem
+                  <span aria-hidden='true'> *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</span>
+                </h2>
                 <p className='font-normal text-[14px] text-black w-full'>
                   The usability issues on the Tonys Big Cheese Pizza website
                   frequently drive customers to order by phone instead of using
@@ -167,9 +181,11 @@ export default function CaseStudyPage() {
                 id='solution'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center overflow-clip p-[30px] rounded-[5px] w-full'
               >
-                <h3 className='font-bold text-2xl text-red-400'>
-                  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ solution *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-                </h3>
+                <h2 className='font-bold text-2xl text-red-700'>
+                  <span aria-hidden='true'>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </span>
+                  solution
+                  <span aria-hidden='true'> *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</span>
+                </h2>
                 <p className='font-normal text-black text-[16px] w-full'>
                   First I built a clear, reusable style guide in Figma to help
                   guide my final mockup designs and overall design philosophy
@@ -294,9 +310,11 @@ export default function CaseStudyPage() {
                 id='takeaways'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center overflow-clip p-[30px] rounded-[5px] w-full'
               >
-                <h3 className='font-bold text-2xl text-red-400'>
-                  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ takeaways *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-                </h3>
+                <h2 className='font-bold text-2xl text-red-700'>
+                  <span aria-hidden='true'>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </span>
+                  takeaways
+                  <span aria-hidden='true'> *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</span>
+                </h2>
                 <p className='font-normal text-black text-[16px] w-full'>
                   My redesign specifically addresses usability and accessibility
                   issues by simplifying navigation, creating clear
@@ -325,7 +343,7 @@ export default function CaseStudyPage() {
                   thank you
                 </h3>
               </div>
-            </div>
+            </main>
           </div>
         </div>
       </div>

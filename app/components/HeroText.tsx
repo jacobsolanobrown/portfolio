@@ -10,7 +10,7 @@ const HeroText: React.FC = () => {
     <div className='flex flex-col gap-4'>
       <TextScramble text='jacob solano' onComplete={() => setShowTagline(true)} />
       <div
-        className={`font-mono tracking-widest text-white text-xl transition-all duration-700 ${
+        className={`font-mono tracking-widest text-white text-xl transition-all duration-700 motion-reduce:transition-none ${
           showTagline ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
         }`}
       >

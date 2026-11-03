@@ -1,6 +1,5 @@
 'use client';
 
-import { clear } from 'console';
 import React from 'react';
 import { useEffect } from 'react';
 
@@ -16,6 +15,12 @@ const TextScramble: React.FC<TextScrambleProps> = ({ text, onComplete }) => {
     // logic to scramble the text and update displayedText over time
     // basically have chars scramble for a bit and then reveal the correct char one by one until the full text is revealed -
     // have two timers, one for scrambling and one for revealing, and clear them when the component unmounts or when the text changes
+
+    // visitors who turn on "reduce motion" see the plain name (via CSS below), so skip the timers
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onComplete?.();
+      return;
+    }
 
     const characters =
       'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?'; // chars to use for scrambling
@@ -42,8 +47,6 @@ const TextScramble: React.FC<TextScrambleProps> = ({ text, onComplete }) => {
       }
       // this is update to the string that is being displayed, it will show the scrambled version of the text
       setDisplayedText(result);
-      // this shows the interval repeating
-      console.log(result);
     }
 
     // interval 1: keeps rebuilding the display string
@@ -78,7 +81,18 @@ const TextScramble: React.FC<TextScrambleProps> = ({ text, onComplete }) => {
 
   return (
     <div>
-      <h1 className='tracking-widest font-mono text-6xl'>{displayedText}</h1>
+      <h1 className='tracking-widest font-mono text-6xl'>
+        {/* screen readers (and WAVE) get the real name right away */}
+        <span className='sr-only'>{text}</span>
+        {/* the scramble is visual only, so screen readers skip it */}
+        <span aria-hidden='true' className='motion-reduce:hidden'>
+          {displayedText}
+        </span>
+        {/* with "reduce motion" on, show the plain name instead of the scramble */}
+        <span aria-hidden='true' className='hidden motion-reduce:inline'>
+          {text}
+        </span>
+      </h1>
     </div>
   );
 };

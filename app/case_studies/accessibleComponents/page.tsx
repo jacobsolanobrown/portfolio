@@ -1,7 +1,11 @@
-'use client';
-
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// browser tab / screen reader page title
+export const metadata: Metadata = {
+  title: 'Accessible Components case study',
+};
 
 export default function AccessibleDesignCaseStudy() {
   return (
@@ -16,18 +20,24 @@ export default function AccessibleDesignCaseStudy() {
             <div className='flex flex-col gap-[30px] items-center overflow-clip w-[300px] sticky top-[125px]'>
               {/*  */}
               <div className='border border-stone-200 border-solid flex flex-col items-start rounded-[5px] bg-white gap-[30px] p-[30px] w-[292px]'>
-                <h2 className='font-bold text-2xl text-purple-400 w-full'>
-                  Accessible Components ☆
-                </h2>
+                {/* the page's main heading */}
+                <h1 className='font-bold text-2xl text-purple-700 w-full'>
+                  Accessible Components <span aria-hidden='true'>☆</span>
+                </h1>
                 <p className='font-normal h-[75px] text-stone-500 text-[16px] w-full'>
                   A UI/UX case study evaluating accordion components across
                   three applications for accessibility.
                 </p>
               </div>
               {/* other navs */}
-              <div className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center justify-center overflow-clip p-[30px] rounded-[5px] w-full text-black'>
+              <nav
+                aria-label='on this page'
+                className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center justify-center overflow-clip p-[30px] rounded-[5px] w-full text-black'
+              >
                 <p className='font-bold underline w-full'>
-                  <Link href='/case_studies'>back</Link>
+                  <Link href='/case_studies'>
+                    back<span className='sr-only'> to case studies</span>
+                  </Link>
                 </p>
                 <p className='font-semibold w-full'>
                   <a href='#introduction'>introduction</a>
@@ -41,14 +51,16 @@ export default function AccessibleDesignCaseStudy() {
                 <p className='font-semibold w-full'>
                   <a href='#takeaways'>takeaways</a>
                 </p>
-              </div>
+              </nav>
             </div>
-            {/* the scrollable section */}
-            <div className='flex flex-1 flex-col gap-[30px] items-start'>
+            {/* the scrollable section (the skip link jumps here) */}
+            <main id='main' className='flex flex-1 flex-col gap-[30px] items-start'>
               <div
                 id='introduction'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-start overflow-clip p-[30px] rounded-[5px] w-full'
               >
+                {/* invisible heading so screen reader users can jump to this section like the others */}
+                <h2 className='sr-only'>introduction</h2>
                 <div className='h-[398px] w-full relative'>
                   <Image
                     src='/accessible_components_images/ticketmaster_ui.png'
@@ -85,9 +97,11 @@ export default function AccessibleDesignCaseStudy() {
                 id='current-designs'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center overflow-clip p-[30px] rounded-[5px] w-full'
               >
-                <h3 className='font-bold text-[18px] text-purple-400'>
-                  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ current designs *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-                </h3>
+                <h2 className='font-bold text-[18px] text-purple-700'>
+                  <span aria-hidden='true'>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </span>
+                  current designs
+                  <span aria-hidden='true'> *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</span>
+                </h2>
                 <h3 className='font-bold text-[18px] text-black w-full'>
                   how do we use an accordion?
                 </h3>
@@ -270,9 +284,11 @@ export default function AccessibleDesignCaseStudy() {
                 id='redesign'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center overflow-clip p-[30px] rounded-[5px] w-full'
               >
-                <h3 className='font-bold text-2xl text-purple-400'>
-                  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ redesign *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-                </h3>
+                <h2 className='font-bold text-2xl text-purple-700'>
+                  <span aria-hidden='true'>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </span>
+                  redesign
+                  <span aria-hidden='true'> *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</span>
+                </h2>
                 <p className='font-normal text-black text-[16px] w-full'>
                   Accordions are already a well-optimized UI component,
                   balancing space usage and usability. However, by examining
@@ -433,9 +449,11 @@ export default function AccessibleDesignCaseStudy() {
                 id='takeaways'
                 className='bg-white border border-stone-200 border-solid flex flex-col gap-[30px] items-center overflow-clip p-[30px] rounded-[5px] w-full'
               >
-                <h3 className='font-bold text-2xl text-purple-400'>
-                  *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ takeaways *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚
-                </h3>
+                <h2 className='font-bold text-2xl text-purple-700'>
+                  <span aria-hidden='true'>*ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚ </span>
+                  takeaways
+                  <span aria-hidden='true'> *ੈ✩‧₊˚༺☆༻*ੈ✩‧₊˚</span>
+                </h2>
                 <p className='font-normal text-black text-[16px] w-full'>
                   As a full-stack engineer who aims to build with precision,
                   this case study clarifies how intentional accessibility
@@ -500,7 +518,7 @@ export default function AccessibleDesignCaseStudy() {
                   thank you
                 </h3>
               </div>
-            </div>
+            </main>
           </div>
         </div>
       </div>

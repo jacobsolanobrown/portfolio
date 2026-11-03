@@ -13,6 +13,11 @@ const ThreeScene: React.FC = () => {
 
     const container = containerRef.current;
 
+    // visitors who turn on "reduce motion" get a still globe instead of a spinning one
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+
     // get th einitial width and height of the container to set up our scene
     const width = containerRef.current.clientWidth || window.innerWidth;
     const height = containerRef.current.clientHeight || window.innerHeight;
@@ -52,6 +57,8 @@ const ThreeScene: React.FC = () => {
     effect.domElement.style.fontFamily = 'monospace';
 
     effect.setSize(width, height);
+    // the ASCII art is drawn in a <table>; mark it as layout-only so screen readers and WAVE don't treat it as data
+    effect.domElement.querySelector('table')?.setAttribute('role', 'presentation');
     // append the ASCII effect's DOM element (which is a div containing the ASCII art) to our container
     container.appendChild(effect.domElement);
 
@@ -69,7 +76,10 @@ const ThreeScene: React.FC = () => {
 
     // load the earth texture and create a material that uses it
     const textureLoader = new THREE.TextureLoader();
-    const earthTexture = textureLoader.load('/another_earth.jpg');
+    const earthTexture = textureLoader.load('/another_earth.jpg', () => {
+      // with reduced motion there is no animation loop, so draw one frame once the texture is ready
+      if (prefersReducedMotion) effect.render(scene, camera);
+    });
 
     // create the sphere
     const material = new THREE.MeshPhongMaterial({
@@ -81,7 +91,7 @@ const ThreeScene: React.FC = () => {
     scene.add(sphere);
 
     // create the animation lopp
-    let frameId: number;
+    let frameId = 0;
     const render = (time: number) => {
       // convert time to seconds and make it smaller so the rotation isn't too fast
       time *= 0.0005;
@@ -93,8 +103,10 @@ const ThreeScene: React.FC = () => {
       // request the next frame to keep the animation going
       frameId = requestAnimationFrame(render);
     };
-    // start the animation loop
-    frameId = requestAnimationFrame(render);
+    // start the animation loop (skipped for reduced motion)
+    if (!prefersReducedMotion) {
+      frameId = requestAnimationFrame(render);
+    }
 
     // // resizing handler to make sure our scene adjusts when the window size changes
     // const handleResize = () => {
@@ -128,6 +140,8 @@ const ThreeScene: React.FC = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
       effect.setSize(newWidth, newHeight);
+      // no animation loop to redraw it, so redraw the still globe at the new size
+      if (prefersReducedMotion) effect.render(scene, camera);
     });
 
     resizeObserver.observe(container);
@@ -156,6 +170,8 @@ const ThreeScene: React.FC = () => {
   return (
     <div
       ref={containerRef}
+      // decorative: screen readers skip the thousands of ASCII characters
+      aria-hidden='true'
       // className='w-full h-full block text-white font-mono justify-center items-center bg-none m-0 p-0'
       style={{ position: 'relative', width: '100%', height: '100%' }}
     />
